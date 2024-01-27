@@ -10,7 +10,10 @@ class Solution:
             if (r - l + 1) - max_f <= k:
                 res = max(res, r - l + 1)
             else:
-                counter[s[l]]-=1
+                if counter[s[l]] == 1:
+                    del counter[s[l]]
+                else:
+                    counter[s[l]]-=1
                 l+=1
         return res
                 
