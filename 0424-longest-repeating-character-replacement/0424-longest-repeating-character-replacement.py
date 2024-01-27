@@ -1,15 +1,16 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        lookup = {}
-        res = 0
+        counter = {}
+        max_f = 0
         l = 0
+        res = 0
         for r in range(len(s)):
-            lookup[s[r]] = 1 + lookup.get(s[r],0)
-            maxf = max(lookup.values())
-            if (r - l + 1) - maxf > k:
-                lookup[s[l]] -= 1
-                l+=1
-            else:
+            counter[s[r]] = 1 + counter.get(s[r],0)
+            max_f = max(counter.values())
+            if (r - l + 1) - max_f <= k:
                 res = max(res, r - l + 1)
+            else:
+                counter[s[l]]-=1
+                l+=1
         return res
-         
+                
