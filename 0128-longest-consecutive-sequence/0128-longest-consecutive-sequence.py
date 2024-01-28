@@ -1,15 +1,20 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        #remove the duplicates
-        nums = set(nums)
-        #check if the current element is starting element of a sequence and try to find longest sequence
-        res = 0
-        for n in nums:
+        #identify the sequence starting element and then continue to find the longest sequence
+        
+        #remove duplicates
+        
+        numSet = set(nums)
+        result = 0
+        for n in numSet:
             longest = 0
-            if n - 1 not in nums:
-                while n + longest in nums:
-                    longest+=1
-                res = max(res, longest)
-        return res
+            if n-1 in numSet:
+                continue
+            while n+longest in numSet:
+                longest+=1
+            result = max(result, longest)
+        return result
                 
+                
+            
         
