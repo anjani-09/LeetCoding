@@ -1,9 +1,10 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        d = {}
+        lookup = {}
+        
         for n in nums:
-            if n in d:
+            if n in lookup:
                 return True
-            d[n] = 1
+            lookup[n] = 1 
         return False
         
