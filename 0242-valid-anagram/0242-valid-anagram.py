@@ -1,10 +1,9 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        s_d = {}
-        t_d = {}
-        for c in s:
-            s_d[c] = 1 + s_d.get(c,0)
-        for c in t:
-            t_d[c] = 1 + t_d.get(c,0)
-        return s_d == t_d
+        s_dict, t_dict = {},{}
+        for char in s:
+            s_dict[char] = 1 + s_dict.get(char, 0)
+        for char in t:
+            t_dict[char] = 1 + t_dict.get(char,0)
+        return s_dict == t_dict
         
