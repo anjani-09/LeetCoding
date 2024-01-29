@@ -1,20 +1,19 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        lookup = {'}':'{',']':'[',')':'('}
+        lookup = { '}':'{', ']':'[', ')':'(' }
         stack = []
-        for i in s:
-            if i in lookup.values():
-                stack.append(i)
+        for char in s:
+            if char in lookup.values():
+                stack.append(char)
             else:
                 if not stack:
                     return False
+                if stack[-1]!= lookup[char]:
+                    return False
                 else:
-                    if not lookup[i] == stack[-1]:
-                        return False
-                    else:
-                        stack.pop()
-        if not stack:
-            return True
-        return False
-        
+                    stack.pop()
+        if stack:
+            return False
+        return True
+
         
